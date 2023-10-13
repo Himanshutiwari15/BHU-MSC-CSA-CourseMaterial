@@ -1,0 +1,636 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# *ARTIFICIAL INTELLIGENCE ASSIGNMENT*\n",
+        "- **Name - Himanshu Tiwari**\n",
+        "- **Roll number - 16**\n",
+        "- **Course - MSc Computational Science and Applications**\n",
+        "- **Subject - Artificial Intelligence Practical**\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "1jDZ4vrUTwOF"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## **Q1.  Write a Program to Implement Breadth First Search using Python.**"
+      ],
+      "metadata": {
+        "id": "U4htvLEEUKOY"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "N_59BTudRxkF"
+      },
+      "outputs": [],
+      "source": [
+        "def bfs(visited, graph, node): #function for BFS\n",
+        "  visited.append(node)\n",
+        "  queue.append(node)\n",
+        "\n",
+        "  while queue:          # Creating loop to visit each node\n",
+        "    m = queue.pop(0)\n",
+        "    print (m, end = \" \")\n",
+        "\n",
+        "    for neighbour in graph[m]:\n",
+        "      if neighbour not in visited:\n",
+        "        visited.append(neighbour)\n",
+        "        queue.append(neighbour)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "graph1 = {\n",
+        "  '5' : ['3','7'],\n",
+        "  '3' : ['2', '4'],\n",
+        "  '7' : ['8'],\n",
+        "  '2' : [],\n",
+        "  '4' : ['8'],\n",
+        "  '8' : []\n",
+        "}\n",
+        "\n",
+        "graph2 = {\n",
+        "  \"A\": [\"B\", \"C\"],\n",
+        "  \"B\": [\"D\", \"E\"],\n",
+        "  \"C\": [\"F\"],\n",
+        "  \"D\": [],\n",
+        "  \"E\": [],\n",
+        "  \"F\": []\n",
+        "}"
+      ],
+      "metadata": {
+        "id": "IaOjMwZzlFlv"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "visited = [] # List for visited nodes.\n",
+        "queue = []     #Initialize a queue\n",
+        "\n",
+        "print(\"Breadth-First Search\")\n",
+        "bfs(visited, graph1, '5')\n",
+        "print()\n",
+        "bfs(visited, graph2, \"A\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "RFQIf0valMrW",
+        "outputId": "d5cfa246-d8e2-41ca-f70d-68fee02568f9"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Breadth-First Search\n",
+            "5 3 7 2 4 8 \n",
+            "A B C D E F "
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## **Q2.  Write a Program to Implement Depth First Search using Python.**"
+      ],
+      "metadata": {
+        "id": "C01CsqTxtTTh"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def dfs(visited, graph, node):  #function for dfs in recursive manner\n",
+        "    if node not in visited:\n",
+        "        print (node)\n",
+        "        visited.add(node)\n",
+        "        for neighbour in graph[node]:\n",
+        "            dfs(visited, graph, neighbour)"
+      ],
+      "metadata": {
+        "id": "Qk4oeXwAlQ8C"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "visited = set()\n",
+        "\n",
+        "print(\"Depth-First Search\")\n",
+        "dfs(visited, graph1, '5')\n",
+        "print()\n",
+        "dfs(visited, graph2, 'A')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "WuqMN0wUtrJq",
+        "outputId": "68fe377c-5a34-4c37-be5f-7f7a078fe949"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Depth-First Search\n",
+            "5\n",
+            "3\n",
+            "2\n",
+            "4\n",
+            "8\n",
+            "7\n",
+            "\n",
+            "A\n",
+            "B\n",
+            "D\n",
+            "E\n",
+            "C\n",
+            "F\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## **Q3.  Write a Program to Implement Tic-Tac-Toe game using Python.**"
+      ],
+      "metadata": {
+        "id": "4QUr3qCpueZa"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import random\n",
+        "\n",
+        "\n",
+        "class TicTacToe:\n",
+        "\n",
+        "    def __init__(self):\n",
+        "        self.board = []\n",
+        "\n",
+        "    def create_board(self):\n",
+        "        for i in range(3):\n",
+        "            row = []\n",
+        "            for j in range(3):\n",
+        "                row.append('-')\n",
+        "            self.board.append(row)\n",
+        "\n",
+        "    def get_random_first_player(self):\n",
+        "        return random.randint(0, 1)\n",
+        "\n",
+        "    def fix_spot(self, row, col, player):\n",
+        "        self.board[row][col] = player\n",
+        "\n",
+        "    def is_player_win(self, player):\n",
+        "        win = None\n",
+        "\n",
+        "        n = len(self.board)\n",
+        "\n",
+        "        # checking rows\n",
+        "        for i in range(n):\n",
+        "            win = True\n",
+        "            for j in range(n):\n",
+        "                if self.board[i][j] != player:\n",
+        "                    win = False\n",
+        "                    break\n",
+        "            if win:\n",
+        "                return win\n",
+        "\n",
+        "        # checking columns\n",
+        "        for i in range(n):\n",
+        "            win = True\n",
+        "            for j in range(n):\n",
+        "                if self.board[j][i] != player:\n",
+        "                    win = False\n",
+        "                    break\n",
+        "            if win:\n",
+        "                return win\n",
+        "\n",
+        "        # checking diagonals\n",
+        "        win = True\n",
+        "        for i in range(n):\n",
+        "            if self.board[i][i] != player:\n",
+        "                win = False\n",
+        "                break\n",
+        "        if win:\n",
+        "            return win\n",
+        "\n",
+        "        win = True\n",
+        "        for i in range(n):\n",
+        "            if self.board[i][n - 1 - i] != player:\n",
+        "                win = False\n",
+        "                break\n",
+        "        if win:\n",
+        "            return win\n",
+        "        return False\n",
+        "\n",
+        "        for row in self.board:\n",
+        "            for item in row:\n",
+        "                if item == '-':\n",
+        "                    return False\n",
+        "        return True\n",
+        "\n",
+        "    def is_board_filled(self):\n",
+        "        for row in self.board:\n",
+        "            for item in row:\n",
+        "                if item == '-':\n",
+        "                    return False\n",
+        "        return True\n",
+        "\n",
+        "    def swap_player_turn(self, player):\n",
+        "        return 'X' if player == 'O' else 'O'\n",
+        "\n",
+        "    def show_board(self):\n",
+        "        for row in self.board:\n",
+        "            for item in row:\n",
+        "                print(item, end=\" \")\n",
+        "            print()\n",
+        "\n",
+        "    def start(self):\n",
+        "        self.create_board()\n",
+        "\n",
+        "        player = 'X' if self.get_random_first_player() == 1 else 'O'\n",
+        "        while True:\n",
+        "            print(f\"Player {player} turn\")\n",
+        "\n",
+        "            self.show_board()\n",
+        "\n",
+        "            # taking user input\n",
+        "            row, col = list(\n",
+        "                map(int, input(\"Enter row and column numbers to fix spot: \").split()))\n",
+        "            print()\n",
+        "\n",
+        "            # fixing the spot\n",
+        "            self.fix_spot(row - 1, col - 1, player)\n",
+        "\n",
+        "            # checking whether current player is won or not\n",
+        "            if self.is_player_win(player):\n",
+        "                print(f\"Player {player} wins the game!\")\n",
+        "                break\n",
+        "\n",
+        "            # checking whether the game is draw or not\n",
+        "            if self.is_board_filled():\n",
+        "                print(\"Match Draw!\")\n",
+        "                break\n",
+        "\n",
+        "            # swapping the turn\n",
+        "            player = self.swap_player_turn(player)\n",
+        "\n",
+        "        # showing the final view of board\n",
+        "        print()\n",
+        "        self.show_board()\n",
+        "\n",
+        "\n",
+        "# starting the game\n",
+        "tic_tac_toe = TicTacToe()\n",
+        "tic_tac_toe.start()\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "nO4z5UQuul9u",
+        "outputId": "b209ee65-eb24-4bff-8ded-d68d6bd66c15"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Player X turn\n",
+            "- - - \n",
+            "- - - \n",
+            "- - - \n",
+            "Enter row and column numbers to fix spot: 1 1\n",
+            "\n",
+            "Player O turn\n",
+            "X - - \n",
+            "- - - \n",
+            "- - - \n",
+            "Enter row and column numbers to fix spot: 1 3\n",
+            "\n",
+            "Player X turn\n",
+            "X - O \n",
+            "- - - \n",
+            "- - - \n",
+            "Enter row and column numbers to fix spot: 3 1\n",
+            "\n",
+            "Player O turn\n",
+            "X - O \n",
+            "- - - \n",
+            "X - - \n",
+            "Enter row and column numbers to fix spot: 2 1\n",
+            "\n",
+            "Player X turn\n",
+            "X - O \n",
+            "O - - \n",
+            "X - - \n",
+            "Enter row and column numbers to fix spot: 3 3\n",
+            "\n",
+            "Player O turn\n",
+            "X - O \n",
+            "O - - \n",
+            "X - X \n",
+            "Enter row and column numbers to fix spot: 3 2\n",
+            "\n",
+            "Player X turn\n",
+            "X - O \n",
+            "O - - \n",
+            "X O X \n",
+            "Enter row and column numbers to fix spot: 2 2\n",
+            "\n",
+            "Player X wins the game!\n",
+            "\n",
+            "X - O \n",
+            "O X - \n",
+            "X O X \n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **Q4. Write a Program to Implement 8-Puzzle problem using Python.**"
+      ],
+      "metadata": {
+        "id": "j9nZYxpiZ1C3"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from __future__ import print_function\n",
+        "import sys\n",
+        "\n",
+        "def misplacedTiles(currentState):\n",
+        "    numberOfMisplacedTiles = 0\n",
+        "    goal = [1, 2, 3,\n",
+        "            4, 5, 6,\n",
+        "            7, 8, 0]\n",
+        "\n",
+        "    for i in range(len(goal)):\n",
+        "        if currentState[i] != 0 and currentState[i] != goal[i]:\n",
+        "            numberOfMisplacedTiles += 1\n",
+        "\n",
+        "    return numberOfMisplacedTiles\n",
+        "\n",
+        "def printAsMatrix(lst):\n",
+        "    for i in range(len(lst)):\n",
+        "        if i % 3 == 0 and i > 0:\n",
+        "            print(\"\")\n",
+        "        print(str(lst[i]) + \" \", end=\"\")\n",
+        "    print(\"\")\n",
+        "\n",
+        "def isSolvable(state):\n",
+        "    invCount = 0\n",
+        "    for i in range(0, 8):\n",
+        "        for j in range(i + 1, 9):\n",
+        "            if state[i] != 0 and state[j] != 0 and state[i] > state[j]:\n",
+        "                invCount += 1\n",
+        "\n",
+        "    return invCount % 2 == 0\n",
+        "\n",
+        "def move(indexes, position, state, path):\n",
+        "    minMisplacedTilesNumber = sys.maxsize\n",
+        "    storedState = list(state)\n",
+        "\n",
+        "    for i in range(len(indexes)):\n",
+        "        duplicatedState = list(state)\n",
+        "\n",
+        "        duplicatedState[position], duplicatedState[indexes[i]] = duplicatedState[indexes[i]], duplicatedState[position]\n",
+        "\n",
+        "        misplacedTilesNumber = misplacedTiles(duplicatedState)\n",
+        "\n",
+        "        if misplacedTilesNumber < minMisplacedTilesNumber and duplicatedState not in path:\n",
+        "            minMisplacedTilesNumber = misplacedTilesNumber\n",
+        "            storedState = list(duplicatedState)\n",
+        "\n",
+        "    return storedState, minMisplacedTilesNumber\n",
+        "\n",
+        "if __name__ == '__main__':\n",
+        "    state = []\n",
+        "\n",
+        "    while len(state) != 9:\n",
+        "        x = int(input(\"Enter \" + str(len(state)) + \" element : \"))\n",
+        "        state.append(x)\n",
+        "\n",
+        "    path = [state]\n",
+        "    heuristicValue = misplacedTiles(state)\n",
+        "    level = 1\n",
+        "\n",
+        "    print(\"\\n--- Level --- \" + str(level))\n",
+        "    printAsMatrix(state)\n",
+        "    print(\"Heuristic Value : \" + str(heuristicValue))\n",
+        "\n",
+        "    if isSolvable(state):\n",
+        "        while heuristicValue > 0:\n",
+        "            position = state.index(0)\n",
+        "            level += 1\n",
+        "            possibleIndexesOfEmptyTile = []\n",
+        "\n",
+        "            if position == 0:\n",
+        "                possibleIndexesOfEmptyTile = [1, 3]\n",
+        "            elif position == 1:\n",
+        "                possibleIndexesOfEmptyTile = [0, 2, 4]\n",
+        "            elif position == 2:\n",
+        "                possibleIndexesOfEmptyTile = [1, 5]\n",
+        "            elif position == 3:\n",
+        "                possibleIndexesOfEmptyTile = [0, 4, 6]\n",
+        "            elif position == 4:\n",
+        "                possibleIndexesOfEmptyTile = [1, 3, 5, 7]\n",
+        "            elif position == 5:\n",
+        "                possibleIndexesOfEmptyTile = [2, 4, 8]\n",
+        "            elif position == 6:\n",
+        "                possibleIndexesOfEmptyTile = [3, 7]\n",
+        "            elif position == 7:\n",
+        "                possibleIndexesOfEmptyTile = [4, 6, 8]\n",
+        "            elif position == 8:\n",
+        "                possibleIndexesOfEmptyTile = [5, 7]\n",
+        "\n",
+        "            state, heuristicValue = move(possibleIndexesOfEmptyTile, position, state, path)\n",
+        "\n",
+        "            path.append(state)\n",
+        "\n",
+        "            print(\"\\n-- Level -- \" + str(level))\n",
+        "            printAsMatrix(state)\n",
+        "            print(\"\\nHeuristic Value : \" + str(heuristicValue))\n",
+        "    else:\n",
+        "        print(\"This puzzle is unsolvable\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "g55Kiwy2gojY",
+        "outputId": "3bb60133-004b-46b5-c3f5-ba74542572c0"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter 0 element : 1\n",
+            "Enter 1 element : 2\n",
+            "Enter 2 element : 3\n",
+            "Enter 3 element : 0\n",
+            "Enter 4 element : 4\n",
+            "Enter 5 element : 6\n",
+            "Enter 6 element : 7\n",
+            "Enter 7 element : 5\n",
+            "Enter 8 element : 8\n",
+            "\n",
+            "--- Level --- 1\n",
+            "1 2 3 \n",
+            "0 4 6 \n",
+            "7 5 8 \n",
+            "Heuristic Value : 3\n",
+            "\n",
+            "-- Level -- 2\n",
+            "1 2 3 \n",
+            "4 0 6 \n",
+            "7 5 8 \n",
+            "\n",
+            "Heuristic Value : 2\n",
+            "\n",
+            "-- Level -- 3\n",
+            "1 2 3 \n",
+            "4 5 6 \n",
+            "7 0 8 \n",
+            "\n",
+            "Heuristic Value : 1\n",
+            "\n",
+            "-- Level -- 4\n",
+            "1 2 3 \n",
+            "4 5 6 \n",
+            "7 8 0 \n",
+            "\n",
+            "Heuristic Value : 0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **Q5. Write a Program to Implement Water-Jug problem using Python.**"
+      ],
+      "metadata": {
+        "id": "PjL_lZ7elNei"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class WaterJug:\n",
+        "\n",
+        "    def __init__(self, x, y, z):\n",
+        "        self.x = x\n",
+        "        self.y = y\n",
+        "        self.z = z\n",
+        "\n",
+        "    def DFS(self):\n",
+        "\n",
+        "        frontier = [(0,0)]\n",
+        "        visited = set()\n",
+        "\n",
+        "        while frontier:\n",
+        "\n",
+        "            state = frontier.pop()\n",
+        "            x, y = state\n",
+        "\n",
+        "            if (x,y) in visited:\n",
+        "                continue\n",
+        "\n",
+        "            visited.add((x,y))\n",
+        "\n",
+        "            if x == self.z or y == self.z or x+y == self.z:\n",
+        "                print(\"Goal reached: \", state)\n",
+        "                return True\n",
+        "\n",
+        "            # Generate next states\n",
+        "            frontier.append((x, 0))  # Empty jug 1\n",
+        "            frontier.append((0, y))  # Empty jug 2\n",
+        "            frontier.append((self.x, y))  # Fill jug 1\n",
+        "            frontier.append((x, self.y))  # Fill jug 2\n",
+        "            frontier.append((max(0, x - (self.y - y)), min(self.y, y + x)))  # Pour jug 1 into jug 2\n",
+        "            frontier.append((min(self.x, x + y), max(0, y - (self.x - x))))  # Pour jug 2 into jug 1\n",
+        "\n",
+        "        print(\"No solution found\")\n",
+        "        return False\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "\n",
+        "    x = 5\n",
+        "    y = 3\n",
+        "    z = 4\n",
+        "\n",
+        "    problem = WaterJug(x, y, z)\n",
+        "    problem.DFS()\n"
+      ],
+      "metadata": {
+        "id": "72fK310bd_N0",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "e03a8d55-da7d-4c48-a361-2fecb7cbc1f0"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Goal reached:  (4, 3)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "nPRgpxXqtmWc"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
