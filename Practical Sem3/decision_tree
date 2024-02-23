@@ -1,0 +1,33 @@
+digraph Tree {
+node [shape=box, style="filled", color="black", fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label="age <= 25.5\nentropy = 0.997\nsamples = 15\nvalue = [8, 7]\nclass = Not Midwest", fillcolor="#fcefe6"] ;
+1 [label="entropy = 0.0\nsamples = 2\nvalue = [0, 2]\nclass = Midwest", fillcolor="#399de5"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="age <= 29.5\nentropy = 0.961\nsamples = 13\nvalue = [8, 5]\nclass = Not Midwest", fillcolor="#f5d0b5"] ;
+0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+3 [label="entropy = 0.0\nsamples = 3\nvalue = [3, 0]\nclass = Not Midwest", fillcolor="#e58139"] ;
+2 -> 3 ;
+4 [label="age <= 34.0\nentropy = 1.0\nsamples = 10\nvalue = [5, 5]\nclass = Not Midwest", fillcolor="#ffffff"] ;
+2 -> 4 ;
+5 [label="sushi <= 0.5\nentropy = 0.722\nsamples = 5\nvalue = [1, 4]\nclass = Midwest", fillcolor="#6ab6ec"] ;
+4 -> 5 ;
+6 [label="potato_salad <= 0.5\nentropy = 1.0\nsamples = 2\nvalue = [1, 1]\nclass = Not Midwest", fillcolor="#ffffff"] ;
+5 -> 6 ;
+7 [label="entropy = 0.0\nsamples = 1\nvalue = [1, 0]\nclass = Not Midwest", fillcolor="#e58139"] ;
+6 -> 7 ;
+8 [label="entropy = 0.0\nsamples = 1\nvalue = [0, 1]\nclass = Midwest", fillcolor="#399de5"] ;
+6 -> 8 ;
+9 [label="entropy = 0.0\nsamples = 3\nvalue = [0, 3]\nclass = Midwest", fillcolor="#399de5"] ;
+5 -> 9 ;
+10 [label="potato_salad <= 0.5\nentropy = 0.722\nsamples = 5\nvalue = [4, 1]\nclass = Not Midwest", fillcolor="#eca06a"] ;
+4 -> 10 ;
+11 [label="entropy = 0.0\nsamples = 2\nvalue = [2, 0]\nclass = Not Midwest", fillcolor="#e58139"] ;
+10 -> 11 ;
+12 [label="age <= 37.0\nentropy = 0.918\nsamples = 3\nvalue = [2, 1]\nclass = Not Midwest", fillcolor="#f2c09c"] ;
+10 -> 12 ;
+13 [label="entropy = 0.0\nsamples = 2\nvalue = [2, 0]\nclass = Not Midwest", fillcolor="#e58139"] ;
+12 -> 13 ;
+14 [label="entropy = 0.0\nsamples = 1\nvalue = [0, 1]\nclass = Midwest", fillcolor="#399de5"] ;
+12 -> 14 ;
+}

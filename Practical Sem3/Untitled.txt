@@ -1,0 +1,813 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 400
+        },
+        "id": "eW7238PGdGp3",
+        "outputId": "36d06d30-9574-4523-a746-ca5d09e7aa2f"
+      },
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "FileNotFoundError",
+          "evalue": "[Errno 2] No such file or directory: 'data.csv'",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mFileNotFoundError\u001b[0m                         Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-1-aaff638b517e>\u001b[0m in \u001b[0;36m<cell line: 3>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mpandas\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mpd\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 3\u001b[0;31m \u001b[0mdf\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mpd\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mread_csv\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'data.csv'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      4\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdf\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mto_string\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/util/_decorators.py\u001b[0m in \u001b[0;36mwrapper\u001b[0;34m(*args, **kwargs)\u001b[0m\n\u001b[1;32m    209\u001b[0m                 \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    210\u001b[0m                     \u001b[0mkwargs\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mnew_arg_name\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mnew_arg_value\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 211\u001b[0;31m             \u001b[0;32mreturn\u001b[0m \u001b[0mfunc\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0margs\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkwargs\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    212\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    213\u001b[0m         \u001b[0;32mreturn\u001b[0m \u001b[0mcast\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mF\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mwrapper\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/util/_decorators.py\u001b[0m in \u001b[0;36mwrapper\u001b[0;34m(*args, **kwargs)\u001b[0m\n\u001b[1;32m    329\u001b[0m                     \u001b[0mstacklevel\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mfind_stack_level\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    330\u001b[0m                 )\n\u001b[0;32m--> 331\u001b[0;31m             \u001b[0;32mreturn\u001b[0m \u001b[0mfunc\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0margs\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkwargs\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    332\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    333\u001b[0m         \u001b[0;31m# error: \"Callable[[VarArg(Any), KwArg(Any)], Any]\" has no\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py\u001b[0m in \u001b[0;36mread_csv\u001b[0;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)\u001b[0m\n\u001b[1;32m    948\u001b[0m     \u001b[0mkwds\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mupdate\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkwds_defaults\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    949\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 950\u001b[0;31m     \u001b[0;32mreturn\u001b[0m \u001b[0m_read\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfilepath_or_buffer\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mkwds\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    951\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    952\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py\u001b[0m in \u001b[0;36m_read\u001b[0;34m(filepath_or_buffer, kwds)\u001b[0m\n\u001b[1;32m    603\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    604\u001b[0m     \u001b[0;31m# Create the parser.\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 605\u001b[0;31m     \u001b[0mparser\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mTextFileReader\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfilepath_or_buffer\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkwds\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    606\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    607\u001b[0m     \u001b[0;32mif\u001b[0m \u001b[0mchunksize\u001b[0m \u001b[0;32mor\u001b[0m \u001b[0miterator\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py\u001b[0m in \u001b[0;36m__init__\u001b[0;34m(self, f, engine, **kwds)\u001b[0m\n\u001b[1;32m   1440\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1441\u001b[0m         \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mhandles\u001b[0m\u001b[0;34m:\u001b[0m \u001b[0mIOHandles\u001b[0m \u001b[0;34m|\u001b[0m \u001b[0;32mNone\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;32mNone\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1442\u001b[0;31m         \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_engine\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_make_engine\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mf\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mengine\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1443\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1444\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0mclose\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m->\u001b[0m \u001b[0;32mNone\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py\u001b[0m in \u001b[0;36m_make_engine\u001b[0;34m(self, f, engine)\u001b[0m\n\u001b[1;32m   1733\u001b[0m                 \u001b[0;32mif\u001b[0m \u001b[0;34m\"b\"\u001b[0m \u001b[0;32mnot\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mmode\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1734\u001b[0m                     \u001b[0mmode\u001b[0m \u001b[0;34m+=\u001b[0m \u001b[0;34m\"b\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1735\u001b[0;31m             self.handles = get_handle(\n\u001b[0m\u001b[1;32m   1736\u001b[0m                 \u001b[0mf\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1737\u001b[0m                 \u001b[0mmode\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/pandas/io/common.py\u001b[0m in \u001b[0;36mget_handle\u001b[0;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)\u001b[0m\n\u001b[1;32m    854\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0mioargs\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mencoding\u001b[0m \u001b[0;32mand\u001b[0m \u001b[0;34m\"b\"\u001b[0m \u001b[0;32mnot\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mioargs\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mmode\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    855\u001b[0m             \u001b[0;31m# Encoding\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 856\u001b[0;31m             handle = open(\n\u001b[0m\u001b[1;32m    857\u001b[0m                 \u001b[0mhandle\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    858\u001b[0m                 \u001b[0mioargs\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mmode\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mFileNotFoundError\u001b[0m: [Errno 2] No such file or directory: 'data.csv'"
+          ]
+        }
+      ],
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "df = pd.read_csv('data.csv')\n",
+        "\n",
+        "print(df.to_string())"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "PANDAS ME DATASET"
+      ],
+      "metadata": {
+        "id": "WZvWRoMIeAkb"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas\n",
+        "\n",
+        "mydataset = {\n",
+        "  'cars': [\"BMW\", \"Volvo\", \"Ford\"],\n",
+        "  'passings': [3, 7, 2]\n",
+        "}\n",
+        "\n",
+        "myvar = pandas.DataFrame(mydataset)\n",
+        "\n",
+        "print(myvar)"
+      ],
+      "metadata": {
+        "id": "T9o-Xwrxdlzz"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "mydataset = {\n",
+        "  'cars': [\"BMW\", \"Volvo\", \"Ford\"],\n",
+        "  'passings': [3, 7, 2]\n",
+        "}\n",
+        "\n",
+        "myvar = pd.DataFrame(mydataset)\n",
+        "\n",
+        "print(myvar)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6oGtQT9MeFwn",
+        "outputId": "393f5ef1-f852-4207-e6aa-2cc4c443c3bc"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "    cars  passings\n",
+            "0    BMW         3\n",
+            "1  Volvo         7\n",
+            "2   Ford         2\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "print(pd.__version__)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6L1Rv-A5eSme",
+        "outputId": "ee5fa6e7-9068-4b66-8b88-6eddd5fecf47"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1.5.3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "a = [1, 7, 2]\n",
+        "\n",
+        "myvar = pd.Series(a)\n",
+        "\n",
+        "print(myvar)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5QnW2tjcecXR",
+        "outputId": "0e10289d-c6d9-4039-ac65-5e2f17eb385c"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0    1\n",
+            "1    7\n",
+            "2    2\n",
+            "dtype: int64\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Create Labels"
+      ],
+      "metadata": {
+        "id": "lxI3pSVze0DY"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "a = [1, 7, 2]\n",
+        "\n",
+        "myvar = pd.Series(a, index = [\"x\", \"y\", \"z\"])\n",
+        "\n",
+        "print(myvar)"
+      ],
+      "metadata": {
+        "id": "eNrP2El3eytJ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "dictionary"
+      ],
+      "metadata": {
+        "id": "BQLAiNlpfIYA"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "calories = {\"day1\": 420, \"day2\": 380, \"day3\": 390}\n",
+        "\n",
+        "myvar = pd.Series(calories, index = [\"day1\", \"day2\"])\n",
+        "\n",
+        "print(myvar)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "liI9bMsMfKQB",
+        "outputId": "462e08bf-cf24-46c4-9ea8-4210ff28da6a"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "day1    420\n",
+            "day2    380\n",
+            "dtype: int64\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "create data frame from two series"
+      ],
+      "metadata": {
+        "id": "Nn0ENMPvfk3N"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "data = {\n",
+        "  \"calories\": [420, 380, 390],\n",
+        "  \"duration\": [50, 40, 45]\n",
+        "}\n",
+        "\n",
+        "myvar = pd.DataFrame(data)\n",
+        "\n",
+        "print(myvar)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "qY3LbxjrfUOX",
+        "outputId": "71ae8931-22f1-4526-c984-53b8a098212f"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "   calories  duration\n",
+            "0       420        50\n",
+            "1       380        40\n",
+            "2       390        45\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Create Data Frame simply"
+      ],
+      "metadata": {
+        "id": "mw1PVEczgHLo"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "data = {\n",
+        "  \"calories\": [420, 380, 390],\n",
+        "  \"duration\": [50, 40, 45]\n",
+        "}\n",
+        "\n",
+        "#load data into a DataFrame object:\n",
+        "df = pd.DataFrame(data)\n",
+        "\n",
+        "print(df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "15fIATYLfu_i",
+        "outputId": "e2b6770c-861a-4b8a-a061-77da67ab2313"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "   calories  duration\n",
+            "0       420        50\n",
+            "1       380        40\n",
+            "2       390        45\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "aCsZ5sUlgMTX"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#refer to the row index,this returns a pandas series :\n",
+        "print(df.loc[0])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "44dSfypughby",
+        "outputId": "6a4ca6a4-8746-4af0-e77d-997acdda1c16"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "calories    420\n",
+            "duration     50\n",
+            "Name: 0, dtype: int64\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#use a list of indexes:\n",
+        "print(df.loc[[0, 1]])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "rERZQ1kdgjfh",
+        "outputId": "d7cab163-0027-4918-9f1b-1fa7e421b22f"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "   calories  duration\n",
+            "0       420        50\n",
+            "1       380        40\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "print(pd.options.display.max_rows)"
+      ],
+      "metadata": {
+        "id": "EFqHKYzAgpsL"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "pd.options.display.max_rows = 9999\n",
+        "\n",
+        "df = pd.read_csv('data.csv')\n",
+        "\n",
+        "print(df)"
+      ],
+      "metadata": {
+        "id": "5wAg7Vvnh6H6"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "df = pd.read_json('data.json')\n",
+        "\n",
+        "print(df.to_string())"
+      ],
+      "metadata": {
+        "id": "RUD6G65ciGqQ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "data = {\n",
+        "  \"Duration\":{\n",
+        "    \"0\":60,\n",
+        "    \"1\":60,\n",
+        "    \"2\":60,\n",
+        "    \"3\":45,\n",
+        "    \"4\":45,\n",
+        "    \"5\":60\n",
+        "  },\n",
+        "  \"Pulse\":{\n",
+        "    \"0\":110,\n",
+        "    \"1\":117,\n",
+        "    \"2\":103,\n",
+        "    \"3\":109,\n",
+        "    \"4\":117,\n",
+        "    \"5\":102\n",
+        "  },\n",
+        "  \"Maxpulse\":{\n",
+        "    \"0\":130,\n",
+        "    \"1\":145,\n",
+        "    \"2\":135,\n",
+        "    \"3\":175,\n",
+        "    \"4\":148,\n",
+        "    \"5\":127\n",
+        "  },\n",
+        "  \"Calories\":{\n",
+        "    \"0\":409,\n",
+        "    \"1\":479,\n",
+        "    \"2\":340,\n",
+        "    \"3\":282,\n",
+        "    \"4\":406,\n",
+        "    \"5\":300\n",
+        "  }\n",
+        "}\n",
+        "\n",
+        "df = pd.DataFrame(data)\n",
+        "\n",
+        "print(df)"
+      ],
+      "metadata": {
+        "id": "wRj6C8zaiIJi"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "df = pd.read_csv('data.csv')\n",
+        "\n",
+        "print(df.head(10))"
+      ],
+      "metadata": {
+        "id": "En5XoW9DiSyl"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "head,tail"
+      ],
+      "metadata": {
+        "id": "1b8S4Jv1i75X"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(df.info())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OGGxc6xwjRnY",
+        "outputId": "e6d3e9a9-6d17-4155-d9e7-32cce6560f39"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<class 'pandas.core.frame.DataFrame'>\n",
+            "RangeIndex: 3 entries, 0 to 2\n",
+            "Data columns (total 2 columns):\n",
+            " #   Column    Non-Null Count  Dtype\n",
+            "---  ------    --------------  -----\n",
+            " 0   calories  3 non-null      int64\n",
+            " 1   duration  3 non-null      int64\n",
+            "dtypes: int64(2)\n",
+            "memory usage: 176.0 bytes\n",
+            "None\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "df = pd.read_csv('data.csv')\n",
+        "\n",
+        "new_df = df.dropna()\n",
+        "\n",
+        "print(new_df.to_string())"
+      ],
+      "metadata": {
+        "id": "Ph4xK8fgjScC"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "df = pd.read_csv('data.csv')\n",
+        "\n",
+        "df.dropna(inplace = True)\n",
+        "\n",
+        "print(df.to_string())"
+      ],
+      "metadata": {
+        "id": "ZtjOWAn9kK2H"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "df = pd.read_csv('data.csv')\n",
+        "\n",
+        "df.fillna(130, inplace = True"
+      ],
+      "metadata": {
+        "id": "YRQqdQdUkWH6"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "df = pd.read_csv('data.csv')\n",
+        "\n",
+        "df[\"Calories\"].fillna(130, inplace = True"
+      ],
+      "metadata": {
+        "id": "ujeHxdczkXm-"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "df = pd.read_csv('data.csv')\n",
+        "\n",
+        "x = df[\"Calories\"].mean()\n",
+        "\n",
+        "df[\"Calories\"].fillna(x, inplace = True)"
+      ],
+      "metadata": {
+        "id": "31KeTE4ekc7w"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "df = pd.read_csv('data.csv')\n",
+        "\n",
+        "x = df[\"Calories\"].median()\n",
+        "\n",
+        "df[\"Calories\"].fillna(x, inplace = True"
+      ],
+      "metadata": {
+        "id": "_xnxkY9bkjPN"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "df = pd.read_csv('data.csv')\n",
+        "\n",
+        "x = df[\"Calories\"].mode()[0]\n",
+        "\n",
+        "df[\"Calories\"].fillna(x, inplace = True)"
+      ],
+      "metadata": {
+        "id": "kEu38OulkpwC"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "df = pd.read_csv('data.csv')\n",
+        "\n",
+        "df['Date'] = pd.to_datetime(df['Date'])\n",
+        "\n",
+        "print(df.to_string())"
+      ],
+      "metadata": {
+        "id": "W9QY460Akv2O"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        " df.dropna(subset=['Date'], inplace = True)"
+      ],
+      "metadata": {
+        "id": "JYb5CI6Ck4E2"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.loc[7, 'Duration'] = 45"
+      ],
+      "metadata": {
+        "id": "QhOJUAkHlF-S"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        " for x in df.index:\n",
+        "  if df.loc[x, \"Duration\"] > 120:\n",
+        "    df.loc[x, \"Duration\"] = 120"
+      ],
+      "metadata": {
+        "id": "ZNWp2ufdlQ2E"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for x in df.index:\n",
+        "  if df.loc[x, \"Duration\"] > 120:\n",
+        "    df.drop(x, inplace = True)"
+      ],
+      "metadata": {
+        "id": "gm_7oMghldyQ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(df.duplicated())"
+      ],
+      "metadata": {
+        "id": "b4QjJpUPlnyV"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.drop_duplicates(inplace = True)"
+      ],
+      "metadata": {
+        "id": "opjuHFJelqxB"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.corr()"
+      ],
+      "metadata": {
+        "id": "b5yrCrVelykb"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "df = pd.read_csv('data.csv')\n",
+        "\n",
+        "df.plot()\n",
+        "\n",
+        "plt.show()"
+      ],
+      "metadata": {
+        "id": "u4u7cUV0l7I9"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df[\"Duration\"].plot(kind = 'hist')\n",
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "df = pd.read_csv('data.csv')\n",
+        "\n",
+        "df.plot(kind = 'scatter', x = 'Duration', y = 'Maxpulse')\n",
+        "\n",
+        "plt.show()"
+      ],
+      "metadata": {
+        "id": "vyVPPf6AmDUV"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "df = pd.read_csv('data.csv')\n",
+        "\n",
+        "df.plot(kind = 'scatter', x = 'Duration', y = 'Calories')\n",
+        "\n",
+        "plt.show()"
+      ],
+      "metadata": {
+        "id": "RnW1NLbMmYFX"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
